@@ -1,8 +1,9 @@
 const mydatabase = require("../../database");
 
 function getUsers(req, res) {
+    
     mydatabase
-        .query("select * from movies")
+        .query("select * from users")
         .then(([movies]) => {
             res.json(movies); // use res.json instead of console.log
         })
@@ -16,7 +17,7 @@ const getUsersById = (req, res) => {
     const id = parseInt(req.params.id);
 
     mydatabase
-        .query("select * from movies where id = ?", [id])
+        .query("select * from users where id = ?", [id])
         .then(([movies]) => {
         if (movies[0] != null) {
             res.json(movies[0]);
