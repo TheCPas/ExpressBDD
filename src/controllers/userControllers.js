@@ -4,7 +4,7 @@ function getUsers(req, res) {
     mydatabase
         .query("select * from movies")
         .then(([movies]) => {
-            res.sendStatus(200).json(movies); // use res.json instead of console.log
+            res.json(movies); // use res.json instead of console.log
         })
         .catch((err) => {
             //console.error(err);
@@ -19,7 +19,7 @@ const getUsersById = (req, res) => {
         .query("select * from movies where id = ?", [id])
         .then(([movies]) => {
         if (movies[0] != null) {
-            res.sendStatus(200).json(movies[0]);
+            res.json(movies[0]);
         } else {
             res.sendStatus(404);
         }
